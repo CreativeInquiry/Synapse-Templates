@@ -1,0 +1,29 @@
+
+# xcode
+*.mode1v3
+*.pbxuser
+*.perspectivev3
+xcuserdata
+build
+*.app
+*.a
+
+# OSX
+.DS_Store
+
+# codeblocks
+*.layout
+example/obj
+libs
+
+# Win
+*.exe
+*.dll
+*.vcxproj.user
+*.exp
+*.ilk
+*.lib
+*.pdb
+obj
+*.sdf
+*.suo
