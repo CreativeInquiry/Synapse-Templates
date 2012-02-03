@@ -24,6 +24,7 @@ Make sure your kinect is plugged in and Synapse is running. You will need to mak
 Further info:
 
 * the Windows install requires some [specific driver steps](http://synapsekinect.tumblr.com/post/6698860570/windows-install-instructions)
-* FaceOSC uses ports 12345 & 12347 by default for outbound OSC communication, 2 outbound ports to support 2 simulataneous applications
+* Synapse uses ports 12345 & 12347 by default for outbound OSC communication, 2 outbound ports to support 2 simulataneous applications
+* Synapse receives OSC on port 12346 and joint positions must be requested periodically (every 2-3 seconds)
 * the Synapse window size is 640 x 480, useful in realtion to joint coordinate positions
 * here is the [Synapse OSC communication spec](http://synapsekinect.tumblr.com/post/6307752257/maxmsp-jitter)
