@@ -77,6 +77,11 @@ class Joint {
     hitForward = false;
   }
   
+  // should we ask Synapse for this joint's data?
+  void requestData(boolean yesno) {
+    requestData = yesno;  
+  }
+  
   // returns true if a message was handled
   boolean parseOSC(OscMessage m) {     
 
@@ -188,9 +193,57 @@ class Skeleton {
   }
   
   // get a joint by name
+  // returns null if you're using the wrong name ...
   Joint getJoint(String name) {
     Joint j = (Joint) joints.get(name);
+    if(j == null) {
+        println("Skeleton: getJoint: Sorry, I can't find joint \""+name+"\"");
+        return null;
+    }
     return j;
+  }
+  
+  // should we ask Synapse to send data for a joint?
+  // all joints are requested by default
+  //
+  // turning unneeded joints off saves comm bandwidth
+  void requestDataForJoint(String name, boolean yesno) {
+    Joint j = (Joint) joints.get(name);
+    if(j == null) {
+        println("Skeleton: requestDataForJoint: Sorry, I can't find joint \""+name+"\"");
+        return;
+    }
+    j.requestData(yesno);
+  }
+  
+  // are we currently requesting data for this joint?
+  boolean isRequestingDataForJoint(String name) {
+    Joint j = (Joint) joints.get(name);
+    if(j == null) {
+        println("Skeleton: isRequestingDataForJoint: Sorry, I can't find joint \""+name+"\"");
+        return false;
+    }
+    return j.requestData;
+  }
+  
+  // request all the joints
+  void requestAllJoints() {
+    Iterator iter = joints.entrySet().iterator();
+    while(iter.hasNext()) {
+      Map.Entry pair = (Map.Entry) iter.next();
+      Joint j = (Joint) pair.getValue();
+      j.requestData = true;
+    }
+  }
+  
+  // don't request any joints
+  void requestNoJoints() {
+    Iterator iter = joints.entrySet().iterator();
+    while(iter.hasNext()) {
+      Map.Entry pair = (Map.Entry) iter.next();
+      Joint j = (Joint) pair.getValue();
+      j.requestData = false;
+    }
   }
   
   // get joint pos in the body coordinates
@@ -224,7 +277,6 @@ class Skeleton {
       }
       if(bundle.size() > 0) {
         oscP5.send(bundle, synapseAddr);
-        println("sent request");
       }
       
       lastRequestTimestamp = millis();
