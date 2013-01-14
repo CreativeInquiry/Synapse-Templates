@@ -11,6 +11,7 @@ Download [Synapse for Kinect](http://synapsekinect.tumblr.com/post/6305020721/do
 
 * [Processing](http://processing.org/)
 	* requires the [OscP5 library](http://www.sojamo.de/libraries/oscP5/)
+<!--
 * [OpenFrameworks](http://www.openframeworks.cc/)
 	* currently requires OF version 007
 	* make sure to copy the SynapseReceiver folder into the openframeworks/apps/myApps folder (it must be 3 levels deep)
@@ -18,6 +19,7 @@ Download [Synapse for Kinect](http://synapsekinect.tumblr.com/post/6305020721/do
 	* requires the [CNMAT Everything for Max package](http://cnmat.berkeley.edu/downloads) for the (OSC-route) object
 * [Pure Data Extended](http://puredata.info/)
 	* requires Pd-Extended for the [OSCroute] and [udpreceive] objects (part of the mrpeach external included in Pd-Extended)
+-->
 
 Make sure your kinect is plugged in and Synapse is running. You will need to make the [Kinect psi pose](https://www.google.com/search?q=kinect+psi+pose&hl=en&prmd=imvns&tbm=isch&tbo=u&source=univ&sa=X&ei=qP4qT6HNBIOChQfN0KTRCg&ved=0CDgQsAQ&biw=1463&bih=1016) for the skeleton tracker to find you and start sending joint data.
 
