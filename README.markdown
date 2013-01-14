@@ -11,6 +11,7 @@ Download [Synapse for Kinect](http://synapsekinect.tumblr.com/post/6305020721/do
 
 * [Processing](http://processing.org/)
 	* requires the [OscP5 library](http://www.sojamo.de/libraries/oscP5/)
+	
 <!--
 * [OpenFrameworks](http://www.openframeworks.cc/)
 	* currently requires OF version 007
