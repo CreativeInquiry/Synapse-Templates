@@ -3,6 +3,8 @@
 // http://synapsekinect.tumblr.com/post/6307752257/maxmsp-jitter
 //
 
+import java.util.Map;
+import java.util.Iterator;
 import java.util.HashMap;
 import oscP5.*;
 import netP5.*;
